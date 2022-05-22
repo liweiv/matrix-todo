@@ -3,9 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>Todo App</title>
+    <script src="//cdn.staticfile.org/jquery/1.10.0/jquery.min.js">
+    </script>
+    <link rel="stylesheet" href="//cdn.staticfile.org/bootstrap/4.5.3/css/bootstrap.min.css">
+    <script src="//cdn.staticfile.org/bootstrap/4.5.3/js/bootstrap.min.js"></script>
+    <style>
+        .container {
+            padding: 24px;
+        }
+
+        .todo-list {
+            margin-top: 16px;
+        }
+
+        .btn-box {
+            margin-top: 16px;
+        }
+
+    </style>
 </head>
 <body>
-<div>test</div>
+<div class="container">
+    <div>Matrix cloud example: todo</div>
+
+    <div class="btn-box">
+        <button type="button" class="btn btn-primary get-todo-btn" onclick="getTodos()">Get Todos</button>
+        <div class="spinner-border" style="display: none;margin-left: 15px;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+
+    </div>
+
+    <ul class="list-group todo-list">
+    </ul>
+</div>
+
+<script>
+    function getTodos() {
+        $(".list-group").empty();
+        $(".spinner-border").show();
+
+        $.get("/api/v1/todos", (data) => {
+            setTimeout(() => {
+                // alert(JSON.stringify(data))
+                data.forEach((item) => {
+                    $(".list-group").append('<li class="list-group-item">' + item + '</li>');
+                });
+                $(".spinner-border").hide();
+            }, 1000)
+        });
+    }
+</script>
+
 
 </body>
 </html>
