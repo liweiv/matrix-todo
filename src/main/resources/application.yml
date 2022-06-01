@@ -5,9 +5,17 @@ apollo:
     enabled: true
     namespaces: application,custom
 spring:
+  application:
+    name: consumer
   thymeleaf:
     cache: false
     prefix: classpath:/templates/
     encoding: UTF-8
     suffix: .html
     mode: HTML
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        server-addr: 127.0.0.1:8848
