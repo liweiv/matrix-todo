@@ -6,7 +6,7 @@ apollo:
     namespaces: application,custom
 spring:
   application:
-    name: consumer
+    name: todo
   thymeleaf:
     cache: false
     prefix: classpath:/templates/
@@ -14,8 +14,16 @@ spring:
     suffix: .html
     mode: HTML
   cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
     nacos:
       username: nacos
       password: nacos
       discovery:
+        enabled: true
         server-addr: 127.0.0.1:8848
+        fail-fast: true
+        metadata:
+          version: 1.0.0
+          kind: http

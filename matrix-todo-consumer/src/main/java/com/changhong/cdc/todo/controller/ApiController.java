@@ -21,9 +21,9 @@ public class ApiController {
     RestTemplate restTemplate;
     @Autowired
     private DiscoveryClient discoveryClient;
-
-    @Autowired
-    private LoadBalancerClient loadBalancerClient;
+    //
+//    @Autowired
+//    private LoadBalancerClient loadBalancerClient;
     final CustomConfig config;
 
     public ApiController(CustomConfig config) {
@@ -40,8 +40,10 @@ public class ApiController {
 
     @GetMapping("/test")
     public String test() {
-        ServiceInstance serviceInstance =    loadBalancerClient.choose("helloworld.http");
+//        ServiceInstance serviceInstance =    loadBalancerClient.choose("helloworld.http");
 //        String url = "http://" + serviceInstance.getServiceId() + ":" + serviceInstance.getPort() + "/member/info/getUserMember/" + username;
+        String str = restTemplate.getForObject("http://todo-service-provider/echo/bibi", String.class);
+        log.info("todo provider: {}", str);
         return restTemplate.getForObject("http://helloworld.http/helloworld/cde", String.class);
     }
 
