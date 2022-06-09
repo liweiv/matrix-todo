@@ -18,7 +18,7 @@ steps:
   - name: notify
     image: drillster/drone-email
     settings:
-      from: MCC-CI
+      from: MCC-CI<mccservice@mcc2gs.com>
       host: smtp.feishu.cn
       port: 465
       username:
