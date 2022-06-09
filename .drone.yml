@@ -1,6 +1,7 @@
 kind: pipeline
 name: default
-
+clone:
+  disable: true
 steps:
   - name: clone
     image: alpine/git
