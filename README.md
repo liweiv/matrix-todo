@@ -1,4 +1,5 @@
-# matrix-todo
+[![Build Status](http://172.28.24.209:8000/api/badges/liwei123/mcc-drone-demo-java/status.svg)](http://172.28.24.209:8000/liwei123/mcc-drone-demo-java)
+# todo
 示例工程
 
 [页面地址](http://localhost:8080)
