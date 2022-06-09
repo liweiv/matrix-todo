@@ -6,3 +6,4 @@ steps:
     image: maven:3-jdk-11
     commands:
       - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+      #update
