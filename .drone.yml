@@ -15,7 +15,6 @@ steps:
     commands:
       - ls -al ~/.
       - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-      #update
 volumes:
   - name: maven-cache
     host:
