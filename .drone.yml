@@ -9,7 +9,14 @@ steps:
     - git clone http://172.28.24.205:9999/liwei123/mcc-drone-demo-java.git .
   - name: build
     image: maven:3-jdk-11
+    volumes:
+    - name: maven-cache
+      path: /root/.m2
     commands:
       - ls -al ~/.
       - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
       #update
+volumes:
+  - name: maven-cache
+    host:
+      path: /var/lib/cache
