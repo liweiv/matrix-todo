@@ -1,0 +1,15 @@
+app:
+  id: 0624a0bb-04c7-4b8a-8c4e-405a55f550a8
+apollo:
+  bootstrap:
+    enabled: true
+    namespaces: application,custom
+spring:
+  application:
+    name: todo
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    encoding: UTF-8
+    suffix: .html
+    mode: HTML

@@ -4,8 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        <module>matrix-todo-provider</module>
-        <module>matrix-todo-consumer</module>
+        <module>todo-cloud</module>
+        <module>todo-boot</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
