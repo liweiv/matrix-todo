@@ -2,6 +2,10 @@ kind: pipeline
 name: default
 
 steps:
+  - name: clone
+    image: alpine/git
+    commands:
+    - git clone http://172.28.24.205:9999/liwei123/mcc-drone-demo-java.git .
   - name: test
     image: maven:3-jdk-11
     commands:
