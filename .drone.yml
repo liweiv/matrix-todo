@@ -15,6 +15,20 @@ steps:
     commands:
       - ls -al ~/.
       - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  - name: docker
+    image: plugins/docker
+    settings:
+      repo: 850054557990.dkr.ecr.cn-northwest-1.amazonaws.com.cn/mcc
+      tags: latest
+  - name: publish
+    image: plugins/ecr
+    settings:
+      access_key:
+        from_secret: aws_ak
+      secret_key:
+        from_secret: aws_sk
+      repo: mcc
+      registry: 850054557990.dkr.ecr.cn-northwest-1.amazonaws.com.cn
   - name: notify
     image: drillster/drone-email
     settings:
